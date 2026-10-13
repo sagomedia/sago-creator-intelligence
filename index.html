@@ -722,8 +722,8 @@
             <div class="panel-subtitle">Dual-axis view: Daily impressions vs subscriber acquisition rate</div>
           </div>
           <div class="filter-tabs">
-            <button class="tab-btn active" onclick="updateChartRange('14d')">14 Days</button>
-            <button class="tab-btn" onclick="updateChartRange('30d')">30 Days</button>
+            <button class="tab-btn active" onclick="updateChartRange('14d', this)">14 Days</button>
+            <button class="tab-btn" onclick="updateChartRange('30d', this)">30 Days</button>
           </div>
         </div>
         <div class="chart-container">
@@ -755,10 +755,10 @@
           </p>
         </div>
         <div class="filter-tabs">
-          <button class="tab-btn active" onclick="filterTable('all')">All Platforms</button>
-          <button class="tab-btn" onclick="filterTable('youtube')">YouTube Shorts</button>
-          <button class="tab-btn" onclick="filterTable('instagram')">Instagram Reels</button>
-          <button class="tab-btn" onclick="filterTable('linkedin')">LinkedIn</button>
+          <button class="tab-btn active" onclick="filterTable('all', this)">All Platforms</button>
+          <button class="tab-btn" onclick="filterTable('youtube', this)">YouTube Shorts</button>
+          <button class="tab-btn" onclick="filterTable('instagram', this)">Instagram Reels</button>
+          <button class="tab-btn" onclick="filterTable('linkedin', this)">LinkedIn</button>
         </div>
       </div>
 
@@ -1024,9 +1024,13 @@
     }
 
     // Filter Table by Platform
-    function filterTable(platform) {
-      document.querySelectorAll(".filter-tabs button").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
+    function filterTable(platform, btn) {
+      document.querySelectorAll(".table-panel .filter-tabs button").forEach(b => b.classList.remove("active"));
+      if (btn) {
+        btn.classList.add("active");
+      } else if (window.event && window.event.target) {
+        window.event.target.classList.add("active");
+      }
       if (platform === "all") {
         renderTable(contentItems);
       } else {
@@ -1034,24 +1038,36 @@
       }
     }
 
+    // Chart Data Definitions
+    const chartData14d = {
+      labels: ["Oct 01", "Oct 02", "Oct 03", "Oct 04", "Oct 05", "Oct 06", "Oct 07", "Oct 08", "Oct 09", "Oct 10", "Oct 11", "Oct 12", "Oct 13", "Oct 14"],
+      yt: [34000, 39000, 42000, 48000, 52000, 59000, 68000, 74000, 79000, 85000, 92000, 99000, 108000, 115000],
+      ig: [28000, 31000, 35000, 41000, 46000, 53000, 62000, 69000, 75000, 81000, 88000, 95000, 104000, 112000]
+    };
+    const chartData30d = {
+      labels: [
+        "Sep 15", "Sep 17", "Sep 19", "Sep 21", "Sep 23", "Sep 25", "Sep 27", "Sep 29",
+        "Oct 01", "Oct 03", "Oct 05", "Oct 07", "Oct 09", "Oct 11", "Oct 13", "Oct 14"
+      ],
+      yt: [15000, 18500, 22000, 26000, 29000, 31000, 33000, 35000, 42000, 52000, 68000, 79000, 92000, 99000, 108000, 115000],
+      ig: [12000, 14000, 17500, 21000, 23500, 25000, 27000, 29000, 35000, 46000, 62000, 75000, 88000, 95000, 104000, 112000]
+    };
+
     // Initialize Chart.js
     let growthChart, distributionChart;
 
     function initCharts() {
       // 1. Growth Line Chart
       const ctxGrowth = document.getElementById("growthChart").getContext("2d");
-      const labels14 = ["Oct 01", "Oct 02", "Oct 03", "Oct 04", "Oct 05", "Oct 06", "Oct 07", "Oct 08", "Oct 09", "Oct 10", "Oct 11", "Oct 12", "Oct 13", "Oct 14"];
-      const ytViews = [34000, 39000, 42000, 48000, 52000, 59000, 68000, 74000, 79000, 85000, 92000, 99000, 108000, 115000];
-      const igViews = [28000, 31000, 35000, 41000, 46000, 53000, 62000, 69000, 75000, 81000, 88000, 95000, 104000, 112000];
 
       growthChart = new Chart(ctxGrowth, {
         type: "line",
         data: {
-          labels: labels14,
+          labels: chartData14d.labels,
           datasets: [
             {
               label: "YouTube Shorts Impressions",
-              data: ytViews,
+              data: [...chartData14d.yt],
               borderColor: "#EF4444",
               backgroundColor: "rgba(239, 68, 68, 0.1)",
               tension: 0.35,
@@ -1060,7 +1076,7 @@
             },
             {
               label: "Instagram Reels Impressions",
-              data: igViews,
+              data: [...chartData14d.ig],
               borderColor: "#EC4899",
               backgroundColor: "rgba(236, 72, 153, 0.08)",
               tension: 0.35,
@@ -1167,15 +1183,30 @@
       document.getElementById("lastSyncTime").innerText = "Last Synced: " + new Date().toLocaleTimeString();
 
       // Slightly perturb chart data
-      growthChart.data.datasets[0].data[13] += Math.floor(Math.random() * 3000) + 1000;
-      growthChart.data.datasets[1].data[13] += Math.floor(Math.random() * 2500) + 800;
+      const lastIdx = growthChart.data.datasets[0].data.length - 1;
+      growthChart.data.datasets[0].data[lastIdx] += Math.floor(Math.random() * 3000) + 1000;
+      growthChart.data.datasets[1].data[lastIdx] += Math.floor(Math.random() * 2500) + 800;
       growthChart.update();
 
       showToast("⚡ Ingested new telemetry snapshots via YouTube & Apify!");
     }
 
-    function updateChartRange(range) {
-      showToast(`Refreshed chart window for ${range}`);
+    function updateChartRange(range, btn) {
+      document.querySelectorAll(".chart-panel .filter-tabs button").forEach(b => b.classList.remove("active"));
+      if (btn) {
+        btn.classList.add("active");
+      } else if (window.event && window.event.target) {
+        window.event.target.classList.add("active");
+      }
+
+      if (growthChart) {
+        const d = (range === "30d") ? chartData30d : chartData14d;
+        growthChart.data.labels = d.labels;
+        growthChart.data.datasets[0].data = [...d.yt];
+        growthChart.data.datasets[1].data = [...d.ig];
+        growthChart.update();
+      }
+      showToast(`Updated chart timeline to ${range === '30d' ? '30-Day Extended Window' : '14-Day Velocity Window'}`);
     }
 
     // On Load
