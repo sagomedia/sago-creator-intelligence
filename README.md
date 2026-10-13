@@ -11,7 +11,7 @@
 **Tenure:** 01 July 2026 – 31 August 2026 (2-Month Engineering Internship)  
 **Offer Letter Reference:** `SMG/2026/INT/003` | **Certificate Identifier:** `SMG/CERT/2026/003` | **Evaluation Rubric:** `SMG/EVAL/2026/003`  
 **Live Academic Documentation:**
-* 📄 **Official Google Doc Full Project Report:** [Open Google Doc Report](https://docs.google.com/document/d/1-vqEDcXmGAo_tEdK4sPkOVdXfa3p13jvlTVbBO-xupc/edit)
+* 📄 **Official Google Doc Full Project Report:** [Open Google Doc Report](https://docs.google.com/document/d/1zkY_Bo5dtybpcul5CFGv0OMa6jH1WL8_DuDilasS6ec/edit)
 * 📊 **Official Google Sheets Defense Ledger:** [Open Google Sheets Submission](https://docs.google.com/spreadsheets/d/1GIGdGZwGtNk1lOss2nFT8kWQ8jXnS6jY-n953kMVVvY/edit?usp=drivesdk)
 * 🌐 **Public GitHub Repository:** [https://github.com/sagomedia/sago-creator-intelligence](https://github.com/sagomedia/sago-creator-intelligence)
 
