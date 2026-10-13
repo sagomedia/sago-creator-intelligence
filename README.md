@@ -9,7 +9,10 @@
 **Academic Supervision:** Dr. G. Babu (Assistant Professor & Programme Coordinator, Directorate of Online Education, SRM IST)  
 **Company Mentorship & Signatory:** Partha Sarathy M (Co-Founder & Operations Director) & Gokulakrishnan M (Founder & Technical Architect)  
 **Tenure:** 01 July 2026 – 31 August 2026 (2-Month Engineering Internship)  
-**Offer Letter Reference:** `SMG/2026/INT/003` | **Certificate Identifier:** `SMG/CERT/2026/003`
+**Offer Letter Reference:** `SMG/2026/INT/003` | **Certificate Identifier:** `SMG/CERT/2026/003`  
+**Live Academic Documentation:**
+* 📄 **Official Google Doc Full Project Report:** [Open Google Doc Report](https://docs.google.com/document/d/1-vqEDcXmGAo_tEdK4sPkOVdXfa3p13jvlTVbBO-xupc/edit)
+* 📊 **Official Google Sheets Defense Ledger:** [Open Google Sheets Submission](https://docs.google.com/spreadsheets/d/1GIGdGZwGtNk1lOss2nFT8kWQ8jXnS6jY-n953kMVVvY/edit?usp=drivesdk)
 
 ---
 

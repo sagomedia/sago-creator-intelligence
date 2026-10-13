@@ -19,6 +19,13 @@ in partial fulfillment for the award of the degree of
 
 ---
 
+## LIVE ACADEMIC ARTIFACTS & REPOSITORY
+* 📄 **Official Google Doc Full Project Report:** [Open Google Doc Report](https://docs.google.com/document/d/1-vqEDcXmGAo_tEdK4sPkOVdXfa3p13jvlTVbBO-xupc/edit)
+* 📊 **Official Google Sheets Defense Ledger:** [Open Google Sheets Submission](https://docs.google.com/spreadsheets/d/1GIGdGZwGtNk1lOss2nFT8kWQ8jXnS6jY-n953kMVVvY/edit?usp=drivesdk)
+* 🌐 **Public GitHub Repository Artifact:** [https://github.com/sagomedia/sago-creator-intelligence](https://github.com/sagomedia/sago-creator-intelligence)
+
+---
+
 ## BONAFIDE CERTIFICATE
 
 This is to certify that the internship report titled **“AUTOMATED MULTI-PLATFORM CREATOR ANALYTICS & AUDIENCE INGESTION ENGINE (SAGO-PULSE)”** submitted by **BARATH V** (Register No: **EA2532251010775**) who carried out the internship work under my academic supervision along with the company mentors at **SAGO MEDIA GROUPS** is a bonafide record of work done in partial fulfillment of the requirements for the award of the degree of **Master of Computer Applications**.
